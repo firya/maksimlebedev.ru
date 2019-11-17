@@ -4,9 +4,11 @@ services:
   maksimlebedev_db:
     image: mysql:5.7
     container_name: maksimlebedev_db
+    ports:
+      - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-    restart: unless-stopped
+    restart: always
     environment:
       - MYSQL_DATABASE=wordpress
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
@@ -20,15 +22,19 @@ services:
     container_name: maksimlebedev
     expose:
       - 80
+      - 443
     volumes:
       - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./theme:/var/www/html/wp-content/themes/maksimlebedev
-    restart: unless-stopped
+    restart: always
     environment:
       - VIRTUAL_HOST=$VIRTUAL_HOST
+      - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
+      - LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
       - WORDPRESS_DB_HOST=maksimlebedev_db:3306
       - WORDPRESS_DB_USER=$MYSQL_USER
       - WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD
+
 volumes:
   db_data:
 
