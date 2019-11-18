@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fafafa;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #2D2D2D;
+}
+
+a, a:visited {
+  color: #136fc4 !important;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.page {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.profile {
+  text-align: center;
+  padding-top: 10vh;
+  margin-bottom: 40px;
+}
+.profile__avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  margin: 0 auto 24px;
+  overflow: hidden;
+}
+.profile__name {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.profile__links {
+
+}
+.profile__block {
+  display: inline-block;
+  margin: 0 10px 10px;
+}
+.profile__icon {
+  vertical-align: middle;
+}
+.profile__link {
+  vertical-align: middle;
+}
+.projects {
+  
+}
+.projects__header {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.projects__row {
+  display: flex;
+  margin: 0 -10px;
+  flex-wrap: wrap;
+}
+.projects__col {
+  padding: 0 10px;
+  margin-bottom: 20px;
+  flex: 50% 0 0;
+  align-items: stretch;
+}
+.project {
+  border: 1px solid #EBEBEB;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
+}
+.project__picture {
+
+}
+.project__image {
+  max-width: 100% !important;
+  min-height: 190px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.project__content {
+  padding: 20px;
+  
+  p {
+    margin-top: 0;
+  }
+}
+.project__header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.project__desc {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.project__actions {
+  display: flex;
+
+  & .button {
+    margin-right: 10px;
+  }
+}
+
+.button {
+  text-decoration: none !important;
+  appearance: none;
+  --webkit-appearance: none;
+  background-color: #fff;
+  border: 1px solid #8DC6FC;
+  color: #136fc4 !important;
+  border-radius: 20px;
+  padding: 7px 20px;
+  font-size: 16px;
+  line-height: 20px;
+  transition: all .175s;
+
+  &:hover {
+    color: #fff !important;
+    background-color: #136fc4;
+    border: 1px solid #136fc4;
+  }
+
+  &:active {
+    color: #fff !important;
+    background-color: #1861a6;
+    border: 1px solid #1861a6;
+  }
+}
+
+@media all and (max-width: 640px) {
+  .projects__col {
+    flex: 100% 0 0;
+  }
+}

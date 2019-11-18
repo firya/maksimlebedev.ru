@@ -24,7 +24,7 @@ services:
       - 80
       - 443
     volumes:
-      - ./config/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./config/uploads.conf:/usr/local/etc/php/conf.d/uploads.ini
       - ./theme:/var/www/html/wp-content/themes/maksimlebedev
     restart: always
     environment:
