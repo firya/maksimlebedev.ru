@@ -30,6 +30,7 @@ a, a:visited {
   margin-bottom: 40px;
 }
 .profile__avatar {
+  display: block;
   width: 200px;
   height: 200px;
   border-radius: 100%;
@@ -80,6 +81,8 @@ a, a:visited {
   border-radius: 10px;
   overflow: hidden;
   height: 100%;
+  max-width: 480px;
+  margin: 0 auto;
 }
 .project__picture {
 
@@ -139,6 +142,12 @@ a, a:visited {
     background-color: #1861a6;
     border: 1px solid #1861a6;
   }
+}
+
+.e404 {
+  font-size: 72px;
+  font-weight: bold;
+  text-align: center;
 }
 
 @media all and (max-width: 640px) {
