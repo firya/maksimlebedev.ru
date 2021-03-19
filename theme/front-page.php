@@ -4,7 +4,7 @@
 
     <?php
       $posts = get_posts( array(
-        'numberposts' => 5,
+        'numberposts' => 20,
         'category'    => 0,
         'orderby'     => 'date',
         'order'       => 'DESC',
