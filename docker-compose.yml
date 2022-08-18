@@ -1,44 +1,18 @@
-version: "3.7"
+version: "3"
 
 services:
-  maksimlebedev_db:
-    image: mysql:5.7
-    container_name: maksimlebedev_db
-    ports:
-      - "3306:3306"
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: unless-stopped
-    environment:
-      - MYSQL_DATABASE=wordpress
-      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
-      - MYSQL_USER=$MYSQL_USER
-      - MYSQL_PASSWORD=$MYSQL_PASSWORD
-
-  wordpress:
-    depends_on:
-      - maksimlebedev_db
-    image: wordpress:latest
-    container_name: maksimlebedev
-    expose:
-      - 80
-      - 443
-    volumes:
-      - ./config/uploads.conf:/usr/local/etc/php/conf.d/uploads.ini
-      - ./theme:/var/www/html/wp-content/themes/maksimlebedev
-    restart: unless-stopped
+  site:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: "maksimlebedev_redirect"
+    restart: always
     environment:
       - VIRTUAL_HOST=$VIRTUAL_HOST
+      - REDIRECT_HOST=$REDIRECT_HOST
       - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
       - LETSENCRYPT_EMAIL=$LETSENCRYPT_EMAIL
-      - WORDPRESS_DB_HOST=maksimlebedev_db:3306
-      - WORDPRESS_DB_USER=$MYSQL_USER
-      - WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD
-
-volumes:
-  db_data:
 
 networks:
   default:
-    external:
-      name: nginx-proxy
+    name: nginx-proxy
